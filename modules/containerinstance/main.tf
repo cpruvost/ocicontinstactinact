@@ -20,11 +20,11 @@ variable "ci_name" {
     default     = "CI_NAME"
 }
 
-variable "ci_name_bis" {
-    description = "The OCI Container Instance Name"
-    type        = string
-    default     = "CI_NAME_BIS"
-}
+# variable "ci_name_bis" {
+#     description = "The OCI Container Instance Name"
+#     type        = string
+#     default     = "CI_NAME_BIS"
+# }
 
 variable "ci_restart_policy" {
     description = "The OCI Container Instance Retsrat Policy"
@@ -137,7 +137,7 @@ resource "oci_container_instances_container_instance" "this" {
 resource "oci_container_instances_container_instance" "thisbis" {
   count = var.ci_count_bis
   compartment_id           = var.compartment_ocid
-  display_name             = var.ci_name_bis
+  display_name             = var.ci_name
   availability_domain      = "${lookup(data.oci_identity_availability_domains.ADs.availability_domains[0], "name")}"
   container_restart_policy = var.ci_restart_policy
   state                    = var.ci_state_bis
