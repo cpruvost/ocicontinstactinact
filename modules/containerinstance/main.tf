@@ -113,7 +113,7 @@ resource "oci_container_instances_container_instance" "this" {
   }
   vnics {
     display_name           = "nicname${count.index}"
-    hostname_label         = "hostname${count.index}"
+    hostname_label         = "hostnameact${count.index}"
     subnet_id              = var.private_subnet_ocid
     skip_source_dest_check = false
     is_public_ip_assigned  = false
@@ -148,7 +148,7 @@ resource "oci_container_instances_container_instance" "thisbis" {
   }
   vnics {
     display_name           = "nicnamebis${count.index}"
-    hostname_label         = "hostnamebis${count.index}"
+    hostname_label         = "hostnameactbis${count.index}"
     subnet_id              = var.private_subnet_ocid
     skip_source_dest_check = false
     is_public_ip_assigned  = false
